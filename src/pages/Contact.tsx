@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import { Mail, CheckCircle, RefreshCw, Loader2 } from "lucide-react";
 import { getPageContent } from "@/lib/content";
 import { usePageMeta } from "@/lib/usePageMeta";
+import "../animations.css";
+import { usePageColor } from "@/hooks/usePageColor";
 
 interface ContactFormContent {
   fields: Record<string, { label: string; placeholder: string }>;
@@ -98,9 +100,10 @@ const Contact = () => {
   const formText = content?.form as ContactFormContent | undefined;
   const emailCta = content?.emailCta as { heading: string; email: string } | undefined;
   usePageMeta(content?.meta.title, content?.meta.description);
+  usePageColor('contact');
 
   return (
-    <div className="bg-brand-cream pt-20">
+    <div className="pt-20 animate-fadeIn">
       {/* Page Header */}
       <header className="py-16 md:py-24 text-center bg-white border-b border-gray-200">
         <div className="container mx-auto px-4">
@@ -204,7 +207,7 @@ const Contact = () => {
                       <Select 
                         name="eventType"
                         required
-                        onValueChange={(value) => handleChange('eventType', value)}
+                        onValuechenge={(value) => handleChange('eventType', value)}
                         value={formData.eventType}
                       >
                         <SelectTrigger className="mt-2 text-lg h-auto p-3">

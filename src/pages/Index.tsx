@@ -1,6 +1,8 @@
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import { getPageContent } from "@/lib/content";
 import { useEffect } from "react";
+import "../animations.css";
+import { usePageColor } from "@/hooks/usePageColor";
 
 // Simple hook for meta (could be expanded later)
 function usePageMeta(title?: string, description?: string) {
@@ -22,8 +24,9 @@ function usePageMeta(title?: string, description?: string) {
 const Index = () => {
   const content = getPageContent('index');
   usePageMeta(content?.meta.title, content?.meta.description);
+  usePageColor('index');
   return (
-    <div className="min-h-screen bg-brand-off-white">
+    <div className="min-h-screen animate-fadeIn">
       {content?.sections?.map((s, i) => <SectionRenderer key={i} section={s} />)}
     </div>
   );

@@ -59,7 +59,15 @@ export default {
 						dark: 'hsl(var(--brand-tomato-dark))'
 					},
 					charcoal: 'hsl(var(--brand-charcoal))',
-					cream: 'hsl(var(--brand-cream))'
+					cream: 'hsl(var(--brand-cream))',
+          'off-white': '#F8F8F8',
+          pink: '#FBE9E7',
+          blue: '#E0F7FA',
+          green: '#E8F5E9',
+          yellow: '#FFFDE7',
+          'story-bg': '#fdfae6',
+          'contact-bg': '#e6f0fd',
+          'about-bg': '#ec624c'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

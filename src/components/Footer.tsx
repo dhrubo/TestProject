@@ -54,6 +54,16 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/user-data-deletion" className="text-white/80 hover:text-white transition-colors">
+                  Data Removal Request
+                </Link>
+              </li>
             </ul>
           </div>
 

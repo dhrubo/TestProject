@@ -123,5 +123,65 @@
       "body": "Head over to our Instagram for the full gallery and daily updates.",
       "cta": { "label": "Visit Our Instagram", "href": "https://www.instagram.com/dough_beats/" }
     }
+  },
+  "privacy-policy": {
+    "meta": {
+      "title": "Privacy Policy | Dough & Beats",
+      "description": "Privacy Policy for Dough & Beats."
+    },
+    "header": {
+      "title": "Privacy Policy",
+      "subtitle": "Last updated: 2024-07-29"
+    },
+    "content": [
+      {
+        "heading": "Introduction",
+        "body": "Dough & Beats (“we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services, including our website and any integration with third-party applications like Instagram."
+      },
+      {
+        "heading": "Information We Collect",
+        "body": "We may collect information that you provide directly to us, such as your name and email address. When you authorize our application to access your Instagram account, we may collect information from your Instagram profile, including your public photos, profile information, and other data you have made public."
+      },
+      {
+        "heading": "How We Use Your Information",
+        "body": "We use the information we collect to operate and improve our services, including to display your Instagram photos within our application. We will not use your information for any other purpose without your consent."
+      },
+      {
+        "heading": "Sharing Your Information",
+        "body": "We will not share your information with third parties without your consent, except as required by law."
+      },
+      {
+        "heading": "Your Rights",
+        "body": "You have the right to access, correct, or delete your personal information. You may also have other rights under applicable data protection laws."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "If you have any questions about this Privacy Policy, please contact us at hello@doughandbeats.co.uk."
+      }
+    ]
+  },
+  "user-data-deletion": {
+    "meta": {
+      "title": "User Data Deletion | Dough & Beats",
+      "description": "Instructions on how to delete your user data from Dough & Beats."
+    },
+    "header": {
+      "title": "User Data Deletion",
+      "subtitle": "How to request the deletion of your data."
+    },
+    "content": [
+      {
+        "heading": "Requesting Data Deletion",
+        "body": "To request the deletion of your data, please send an email to hello@doughandbeats.co.uk with the subject line “Data Deletion Request.” Please include your Instagram username in the body of the email."
+      },
+      {
+        "heading": "Data Deletion Process",
+        "body": "Once we receive your request, we will delete all of your data from our systems within 30 days. This includes any information we have collected from your Instagram profile."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "If you have any questions about our data deletion process, please contact us at hello@doughandbeats.co.uk."
+      }
+    ]
   }
 }

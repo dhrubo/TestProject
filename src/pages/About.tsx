@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { getPageContent } from "@/lib/content";
 import { usePageMeta } from "@/lib/usePageMeta";
+import "../animations.css";
+import { usePageColor } from "@/hooks/usePageColor";
 
 interface AboutHeader { title: string; subtitle: string }
 interface AboutStory { subheading: string; paras: string[]; image: string; imageAlt: string }
@@ -13,9 +15,10 @@ const About = () => {
   const story = content?.story as AboutStory | undefined;
   const cta = content?.cta as AboutCta | undefined;
   usePageMeta(content?.meta.title, content?.meta.description);
+  usePageColor('about');
 
   return (
-    <div className="bg-brand-cream pt-20">
+    <div className="pt-20 animate-fadeIn">
       {/* CSS for blurred frame effect around the image (uses public image path) */}
       <style>{`
         /* frame-blur: create a small, square, black blurred inner frame using an inset box-shadow */
