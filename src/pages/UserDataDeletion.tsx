@@ -1,6 +1,14 @@
 import { getPageContent } from "@/lib/content";
 import { usePageMeta } from "@/lib/usePageMeta";
 import "../animations.css";
+import { useEffect, useState } from "react";
+
+declare global {
+    interface Window {
+        FB: any;
+        handleDataDeletion: () => void;
+    }
+}
 
 interface UserDataDeletionHeader { title: string; subtitle: string }
 interface UserDataDeletionContent { heading: string; body: string }
@@ -10,6 +18,49 @@ const UserDataDeletion = () => {
   const header = content?.header as UserDataDeletionHeader | undefined;
   const deletionContent = content?.content as UserDataDeletionContent[] | undefined;
   usePageMeta(content?.meta.title, content?.meta.description);
+  const [deletionStatus, setDeletionStatus] = useState('');
+  const [isTestMode, setIsTestMode] = useState(false);
+
+  const handleDataDeletion = () => {
+    let userId = localStorage.getItem('instagram_user_id');
+    let accessToken = localStorage.getItem('instagram_access_token');
+
+    if (isTestMode) {
+        // Use dummy data for testing
+        userId = 'TEST_USER_ID';
+        accessToken = 'TEST_ACCESS_TOKEN';
+    }
+
+    if (!userId || !accessToken) {
+      setDeletionStatus('No user data found to delete.');
+      return;
+    }
+
+    if (isTestMode) {
+        // In test mode, we don't call the Facebook API
+        localStorage.removeItem('instagram_user_id');
+        localStorage.removeItem('instagram_access_token');
+        setDeletionStatus('Test data has been successfully deleted.');
+        return;
+    }
+
+    // Call Facebook's API to revoke permissions
+    window.FB.api(`/${userId}/permissions`, 'delete', { access_token: accessToken }, (response: any) => {
+      if (response && !response.error) {
+        // Clear local storage
+        localStorage.removeItem('instagram_user_id');
+        localStorage.removeItem('instagram_access_token');
+        setDeletionStatus('Your data has been successfully deleted.');
+      } else {
+        setDeletionStatus('An error occurred while deleting your data.');
+        console.error('Error revoking permissions:', response.error);
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.handleDataDeletion = handleDataDeletion;
+  }, []);
 
   return (
     <div className="pt-20 animate-fadeIn">
@@ -30,6 +81,20 @@ const UserDataDeletion = () => {
                   <p>{section.body}</p>
                 </div>
               ))}
+              <div className="text-center p-4 border-2 border-dashed border-gray-400 rounded-md">
+                <h3 className="text-2xl font-bold text-brand-tomato mb-4">For App Reviewers</h3>
+                <p className="mb-4">To test the data deletion callback, please enable Test Mode. This will simulate a logged-in user.</p>
+                <label className="flex items-center justify-center">
+                    <input type="checkbox" checked={isTestMode} onChange={() => setIsTestMode(!isTestMode)} className="mr-2" />
+                    Enable Test Mode
+                </label>
+              </div>
+              <div className="text-center">
+                <button onClick={handleDataDeletion} className="bg-brand-tomato text-white px-6 py-3 rounded-md">
+                  Delete My Data
+                </button>
+                {deletionStatus && <p className="mt-4">{deletionStatus}</p>}
+              </div>
             </div>
           </div>
         </div>
