@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:clean": "rm -rf dist && vite build",
+    "build": "vite build && cp dist/index.html dist/404.html",
+    "build:clean": "rm -rf dist && vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview --port 4173 --host",
     "preview:dist": "npm run build:clean && npm run preview",
     "deploy": "npm run build:clean && echo 'Built successfully! Push to GitHub to deploy via Actions.'",
