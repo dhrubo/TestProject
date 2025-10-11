@@ -1,32 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <title>Dough & Beats - Authentic Italian Street Food</title>
-    <script type="module" crossorigin src="./assets/index-Ov29Iebx.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DDNBjUvc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript">
+      // Single Page Application hack for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegments = location.pathname.slice(1).split('/').filter(function(segment) {
+        return segment;
+      });
+      location.replace(
+        location.protocol + '//' + location.hostname + 
+        (location.port ? ':' + location.port : '') +
+        '/?/' +
+        pathSegments.join('/').replace(/&/g, '~and~') +
+        (location.search ? '&' + location.search.slice(1).replace(/&/g, '~and~') : '') +
+        location.hash
+      );
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : 'YOUR_APP_ID', // Replace with your App ID
-          cookie     : true,
-          xfbml      : true,
-          version    : 'v13.0'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
   </body>
 </html>
