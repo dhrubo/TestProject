@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import UserDataDeletion from "./pages/UserDataDeletion";
 import ScrollToTop from "./components/ScrollToTop";
+import Instagram from "./pages/Instagram";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/instagram" element={<Instagram />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/user-data-deletion" element={<UserDataDeletion />} />
               <Route path="*" element={<NotFound />} />

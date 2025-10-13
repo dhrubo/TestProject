@@ -55,6 +55,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/instagram" className="text-white/80 hover:text-white transition-colors">
+                  Instagram
+                </Link>
+              </li>
+              <li>
                 <Link to="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
