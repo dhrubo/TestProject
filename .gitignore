@@ -4,7 +4,7 @@
 # Environment variables
 .env
 
-
+.env.bak
 
 # Logs
 npm-debug.log*
