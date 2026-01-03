@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instagram Feed</title>
+<style>
+  #insta-feed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #insta-feed img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<h2>My Instagram Photos</h2>
+<div id="insta-feed"></div>
+
+<script>
+// Replace with your own Instagram User ID and Access Token
+const userId = "17841474747824521";
+const accessToken = "31020417860937963";
+const limit = 9; // Number of photos to fetch
+
+async function loadInstagramPhotos() {
+  try {
+    const response = await fetch(
+      `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,permalink,caption&access_token=${accessToken}&limit=${limit}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const feedContainer = document.getElementById("insta-feed");
+
+    data.data.forEach(item => {
+      if (item.media_type === "IMAGE" || item.media_type === "CAROUSEL_ALBUM") {
+        const link = document.createElement("a");
+        link.href = item.permalink;
+        link.target = "_blank";
+
+        const img = document.createElement("img");
+        img.src = item.media_url;
+        img.alt = item.caption || "Instagram photo";
+
+        link.appendChild(img);
+        feedContainer.appendChild(link);
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching Instagram photos:", error);
+  }
+}
+
+// Load photos on page load
+loadInstagramPhotos();
+</script>
+
+</body>
+</html>

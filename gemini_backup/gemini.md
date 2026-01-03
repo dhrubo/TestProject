@@ -1,0 +1,2 @@
+## Gemini Added Memories
+- The OneGraph API call for fetching carline information uses a GraphQL query with a dynamic 'id' in the variables. The query is: `query Carline($identifier: CarlineIdentifierInput!) { carline(identifier: $identifier) { name, defaultConfiguredCar { model { name } }, exteriorViews { beautyFront, side } } }` and the variables are: `{ "identifier": { "brand": "A", "language": "en", "country": "gb", "id": "<modelId>" } }`

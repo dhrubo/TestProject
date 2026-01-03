@@ -17,3 +17,6 @@ yarn-error.log*
 .env*.local
 
 Thumbs.db
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
